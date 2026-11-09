@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+  Design tokens. Light and dark are both defined so the ERP is usable on
+  a front desk at night without a separate stylesheet.
+*/
+@theme {
+  --color-brand-50:  #f0f6ff;
+  --color-brand-100: #dbe8fe;
+  --color-brand-200: #bfd6fe;
+  --color-brand-300: #93bbfd;
+  --color-brand-400: #6096fa;
+  --color-brand-500: #3b74f6;
+  --color-brand-600: #2556eb;
+  --color-brand-700: #1d43d8;
+  --color-brand-800: #1e3aaf;
+  --color-brand-900: #1e358a;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --surface: #f6f7f9;
+  --panel: #ffffff;
+  --border: #e3e6ea;
+  --text: #14181f;
+  --muted: #626b7a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #0e1116;
+    --panel: #161a21;
+    --border: #262c36;
+    --text: #e8ebf0;
+    --muted: #939cab;
+  }
+}
+
+body {
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numeric columns line up only with tabular figures. */
+.tabular { font-variant-numeric: tabular-nums; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.muted { color: var(--muted); }
+
+/* Keyboard focus must stay visible for front-desk speed. */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
